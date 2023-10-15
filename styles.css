@@ -4,11 +4,20 @@
     column-gap: 15px;
     row-gap: 40px;
 }
+a, a:hover, a:active, a:visited, a:focus{
+    text-decoration: none;
+    display: block;
+    color: black;
+}
+
 body{
     margin: 0px;
     padding-top:80px;
+    padding-left: 96px;
+    padding-right: 24px;
+    background-color: rgb(248, 248, 248);
 }
-p{
+p,a{
     font-family: Roboto;
     margin-top: 0px;
     margin-bottom: 0pc;
@@ -23,22 +32,29 @@ img{
     grid-template-columns: 36px 1fr;
     column-gap: 12px;
 }
-.channel-photo>img{
+.channel-photo{
+    position: relative;
+}
+.channel-photo>a>img{
     border-radius: 50px;
     vertical-align: top;
 }
 .video-title{
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-bottom: 9px;
     cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
 }
 .channel-name,.views{
-    font-size: 13px;
-    color: gray;
+    font-size: 12px;
+    color: rgb(102, 102, 102) !important;
 }
 .channel-name{
-    margin-bottom: 4px;
     cursor: pointer;
+}
+.views{
+    margin-top: 3.5px;
 }
 .navbar-flex{
     display: flex;
@@ -114,7 +130,7 @@ img{
     font-family: Roboto;
     display: flex;
     flex:1;
-    height: 37px;
+    height: 36px;
     padding-left:12px;
     font-size: 16px;
     border: 1px solid rgb(201, 201, 201);
@@ -123,6 +139,7 @@ img{
     box-shadow: inset 1px 2px 5px rgba(0,0, 0,0.05);
     vertical-align: middle;
     width: 0px;
+    
 }
 .search-box:focus{
     outline: none;
@@ -152,9 +169,10 @@ img{
     color: white;
     padding: 4px 4px;
     font-weight: 500;
-    bottom: 12px;
-    right: 6px;
+    bottom: 11px;
+    right: 4px;
     border-radius: 3px;
+    font-size: 12px;
 }
 .right>.notification{
     position: relative;
@@ -172,5 +190,105 @@ img{
     font-size: 11px;
     padding: 1.5px 5px;
     border: 2px solid white;
+    cursor: pointer;
 
+}
+.sidebar{
+    position: fixed;
+    top: 56px;
+    left: 0px;
+    bottom: 0px;
+    width: 72px;
+    background-color: white;
+    z-index: 200;
+    padding-top: 5px;
+}
+.sidebar-link{
+    height: 74px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar-link>img{
+    height: 24px;
+}
+.sidebar-link:hover{
+    background-color: rgb(242, 242, 242);
+}
+.sidebar-link>p{
+    margin-top: 6px;
+    font-size: 10px;
+}
+.tooltip{
+    background-color: rgb(110, 110, 110);
+    color: white;
+    padding: 10px 8px;
+    font-size: 12px;
+    position: absolute;
+    bottom: -40px;
+    opacity: 0;
+    white-space: norap;
+    transition: opacity 0.15s;
+    pointer-events: none;
+}
+.serach-btn, .voice-btn, .right>button{
+    display: flex;
+    justify-content: center;
+}
+.serach-btn:hover>.tooltip, .voice-btn:hover>.tooltip, .right>button:hover>.tooltip{
+    opacity: 1;
+}
+.notification>.tooltip{
+    bottom: -55px;
+}
+.channel-photo-preview{
+    display: flex;
+    position: absolute;
+    background-color: white;
+    padding: 5px 15px;
+    height: 80px;
+    width: 250px;
+    box-shadow: 1px 1px 10px gray;
+    border-radius: 5px;
+    align-items: center;
+    opacity: 0;
+    z-index: 1;
+    top: 50px;
+    transition: opacity 0.15s;
+    pointer-events: none;
+}
+.channel-photo-preview>img{
+    width: 50px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+.channel-photo-preview-title{
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.channel-photo-preview-views{
+    color: rgb(102, 102, 102);
+    font-size: 16px;
+}
+.channel-photo>a:hover .channel-photo-preview{
+    opacity: 1;
+}
+@media (max-width: 1020px){
+    .main-grid{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media (max-width: 790px){
+    .main-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 550px){
+    .main-grid{
+        grid-template-columns: 1fr;
+    }
+    
 }
