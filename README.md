@@ -1,3 +1,3 @@
 # Youtube Clone
 
-Webcite Link: https://hariesh-sr.github.io/youtube/
+Website Link: https://hariesh-sr.github.io/youtube/
